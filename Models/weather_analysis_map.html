@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d33d7af93bd9c37b4bc0ebe93ca1f6a1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+            top: 10px; left: 10px; width: 150px; height: auto; 
+            border:2px solid grey; z-index:1000; font-size:14px;
+            background-color: white;">
+    <p style="text-align: center; font-weight: bold;">Locations Legend</p>
+<p><a href="#" onclick="map.setView([32.7767, -96.797], 8);" style="color: blue;">Dallas</a></p><p><a href="#" onclick="map.setView([33.4484, -112.074], 8);" style="color: orange;">Phoenix</a></p><p><a href="#" onclick="map.setView([32.7157, -117.1611], 8);" style="color: green;">San Diego</a></p><p><a href="#" onclick="map.setView([41.8781, -87.6298], 8);" style="color: red;">Chicago</a></p><p><a href="#" onclick="map.setView([29.7604, -95.3698], 8);" style="color: purple;">Houston</a></p><p><a href="#" onclick="map.setView([29.4241, -98.4936], 8);" style="color: darkblue;">San Antonio</a></p><p><a href="#" onclick="map.setView([40.7128, -74.006], 8);" style="color: darkgreen;">New York</a></p><p><a href="#" onclick="map.setView([39.9526, -75.1652], 8);" style="color: darkred;">Philadelphia</a></p><p><a href="#" onclick="map.setView([37.3382, -121.8863], 8);" style="color: black;">San Jose</a></p><p><a href="#" onclick="map.setView([34.0522, -118.2437], 8);" style="color: yellow;">Los Angeles</a></p></div>
+    
+            <div class="folium-map" id="map_d33d7af93bd9c37b4bc0ebe93ca1f6a1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d33d7af93bd9c37b4bc0ebe93ca1f6a1 = L.map(
+                "map_d33d7af93bd9c37b4bc0ebe93ca1f6a1",
+                {
+                    center: [37.0, -95.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5ab307cd991a4b1b139298311659c97e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5ab307cd991a4b1b139298311659c97e.addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var marker_be034fe35aead3c81a7f47628442419e = L.marker(
+                [41.8781, -87.6298],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_fda910d4e023d3e588fe8815219113c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8794d1fb8c21a0a76040ca7363644110 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0ec5cbc9d3af7238151fa4907c739878 = $(`<div id="html_0ec5cbc9d3af7238151fa4907c739878" style="width: 100.0%; height: 100.0%;">Location: Chicago<br>Temp: 15.0 °C<br>Humidity: 60.1 %<br>Precipitation: 501136.9 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_8794d1fb8c21a0a76040ca7363644110.setContent(html_0ec5cbc9d3af7238151fa4907c739878);
+            
+        
+
+        marker_be034fe35aead3c81a7f47628442419e.bindPopup(popup_8794d1fb8c21a0a76040ca7363644110)
+        ;
+
+        
+    
+    
+                marker_be034fe35aead3c81a7f47628442419e.setIcon(icon_fda910d4e023d3e588fe8815219113c6);
+            
+    
+            var marker_1f1eae0ddadc0eb7ca5fbcd95f456532 = L.marker(
+                [32.7767, -96.797],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_aeb69e057fe6c6fcde91afcbb62ee60c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bb611182f8e336df12b0692075d000a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_471019a6343a8fe255c57a6a6625b86a = $(`<div id="html_471019a6343a8fe255c57a6a6625b86a" style="width: 100.0%; height: 100.0%;">Location: Dallas<br>Temp: 15.0 °C<br>Humidity: 60.0 %<br>Precipitation: 499430.9 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_bb611182f8e336df12b0692075d000a0.setContent(html_471019a6343a8fe255c57a6a6625b86a);
+            
+        
+
+        marker_1f1eae0ddadc0eb7ca5fbcd95f456532.bindPopup(popup_bb611182f8e336df12b0692075d000a0)
+        ;
+
+        
+    
+    
+                marker_1f1eae0ddadc0eb7ca5fbcd95f456532.setIcon(icon_aeb69e057fe6c6fcde91afcbb62ee60c);
+            
+    
+            var marker_e55d027175ae3e4e0ec8579590db8ac9 = L.marker(
+                [29.7604, -95.3698],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_b61daf4ff6ac092c12eab28388fcc1e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16181b07c18e96a9d6ae6a0aad56e704 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4e76958b0731997efe693ad1812ababd = $(`<div id="html_4e76958b0731997efe693ad1812ababd" style="width: 100.0%; height: 100.0%;">Location: Houston<br>Temp: 14.9 °C<br>Humidity: 60.0 %<br>Precipitation: 500155.5 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_16181b07c18e96a9d6ae6a0aad56e704.setContent(html_4e76958b0731997efe693ad1812ababd);
+            
+        
+
+        marker_e55d027175ae3e4e0ec8579590db8ac9.bindPopup(popup_16181b07c18e96a9d6ae6a0aad56e704)
+        ;
+
+        
+    
+    
+                marker_e55d027175ae3e4e0ec8579590db8ac9.setIcon(icon_b61daf4ff6ac092c12eab28388fcc1e0);
+            
+    
+            var marker_872a4bd614c6521983963ea17e7c519b = L.marker(
+                [34.0522, -118.2437],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_897b0f2c69c4441334da7efb80b5c9c1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_acc455eda2dd7a636a46cc9d0768250e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ab3069e48921a2b027f0ac41156e7f3 = $(`<div id="html_2ab3069e48921a2b027f0ac41156e7f3" style="width: 100.0%; height: 100.0%;">Location: Los Angeles<br>Temp: 15.1 °C<br>Humidity: 60.1 %<br>Precipitation: 500058.8 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_acc455eda2dd7a636a46cc9d0768250e.setContent(html_2ab3069e48921a2b027f0ac41156e7f3);
+            
+        
+
+        marker_872a4bd614c6521983963ea17e7c519b.bindPopup(popup_acc455eda2dd7a636a46cc9d0768250e)
+        ;
+
+        
+    
+    
+                marker_872a4bd614c6521983963ea17e7c519b.setIcon(icon_897b0f2c69c4441334da7efb80b5c9c1);
+            
+    
+            var marker_49ccdbb256db5c1263707d9490d2336a = L.marker(
+                [40.7128, -74.006],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_8db73664c16642006c23b59688ac53fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d6344cff014588c4cccd9965fd1ff36 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0eea4558f1950c26d6ee3bc2ff0a1020 = $(`<div id="html_0eea4558f1950c26d6ee3bc2ff0a1020" style="width: 100.0%; height: 100.0%;">Location: New York<br>Temp: 15.0 °C<br>Humidity: 60.0 %<br>Precipitation: 499165.8 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_7d6344cff014588c4cccd9965fd1ff36.setContent(html_0eea4558f1950c26d6ee3bc2ff0a1020);
+            
+        
+
+        marker_49ccdbb256db5c1263707d9490d2336a.bindPopup(popup_7d6344cff014588c4cccd9965fd1ff36)
+        ;
+
+        
+    
+    
+                marker_49ccdbb256db5c1263707d9490d2336a.setIcon(icon_8db73664c16642006c23b59688ac53fe);
+            
+    
+            var marker_28063d0407869968cee01b63a90bf874 = L.marker(
+                [39.9526, -75.1652],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_05fb137958ccaff78e0dddb1a8ccc35e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1dad9abdf0f060c229aafe5b3d9b4ff7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6241ca69c289ef36f10583baee224b5c = $(`<div id="html_6241ca69c289ef36f10583baee224b5c" style="width: 100.0%; height: 100.0%;">Location: Philadelphia<br>Temp: 15.0 °C<br>Humidity: 60.0 %<br>Precipitation: 501467.1 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_1dad9abdf0f060c229aafe5b3d9b4ff7.setContent(html_6241ca69c289ef36f10583baee224b5c);
+            
+        
+
+        marker_28063d0407869968cee01b63a90bf874.bindPopup(popup_1dad9abdf0f060c229aafe5b3d9b4ff7)
+        ;
+
+        
+    
+    
+                marker_28063d0407869968cee01b63a90bf874.setIcon(icon_05fb137958ccaff78e0dddb1a8ccc35e);
+            
+    
+            var marker_abd6d6d447e8e229da675c568221f207 = L.marker(
+                [33.4484, -112.074],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_242d37a9d6fc83a8b86f68dcbb8c99c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d1939ce5863412b716feaf2dbd8b0e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d3d1f9bf45b69354c2a5ac77ef3e061d = $(`<div id="html_d3d1f9bf45b69354c2a5ac77ef3e061d" style="width: 100.0%; height: 100.0%;">Location: Phoenix<br>Temp: 12.8 °C<br>Humidity: 60.0 %<br>Precipitation: 610020.8 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_7d1939ce5863412b716feaf2dbd8b0e2.setContent(html_d3d1f9bf45b69354c2a5ac77ef3e061d);
+            
+        
+
+        marker_abd6d6d447e8e229da675c568221f207.bindPopup(popup_7d1939ce5863412b716feaf2dbd8b0e2)
+        ;
+
+        
+    
+    
+                marker_abd6d6d447e8e229da675c568221f207.setIcon(icon_242d37a9d6fc83a8b86f68dcbb8c99c7);
+            
+    
+            var marker_3c969ac02338a17d0bf702b88e2c62db = L.marker(
+                [29.4241, -98.4936],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_06774065ea279612749068f28f2ccb36 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1853c6ab28a1028d24e7671d705e77e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d700c2bceae5ebdd0bf5f62687da15a = $(`<div id="html_7d700c2bceae5ebdd0bf5f62687da15a" style="width: 100.0%; height: 100.0%;">Location: San Antonio<br>Temp: 15.0 °C<br>Humidity: 59.9 %<br>Precipitation: 500618.8 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_1853c6ab28a1028d24e7671d705e77e1.setContent(html_7d700c2bceae5ebdd0bf5f62687da15a);
+            
+        
+
+        marker_3c969ac02338a17d0bf702b88e2c62db.bindPopup(popup_1853c6ab28a1028d24e7671d705e77e1)
+        ;
+
+        
+    
+    
+                marker_3c969ac02338a17d0bf702b88e2c62db.setIcon(icon_06774065ea279612749068f28f2ccb36);
+            
+    
+            var marker_bffa32633dc10adbd50683e4b7eef548 = L.marker(
+                [32.7157, -117.1611],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_da6c2673c02b810f8eaaaddb793890a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc30b089033af71c814c5fe7ce7d83f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f367a06a547cc338c7c91b5ff1eb9bc = $(`<div id="html_6f367a06a547cc338c7c91b5ff1eb9bc" style="width: 100.0%; height: 100.0%;">Location: San Diego<br>Temp: 14.9 °C<br>Humidity: 60.1 %<br>Precipitation: 499527.8 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_cc30b089033af71c814c5fe7ce7d83f3.setContent(html_6f367a06a547cc338c7c91b5ff1eb9bc);
+            
+        
+
+        marker_bffa32633dc10adbd50683e4b7eef548.bindPopup(popup_cc30b089033af71c814c5fe7ce7d83f3)
+        ;
+
+        
+    
+    
+                marker_bffa32633dc10adbd50683e4b7eef548.setIcon(icon_da6c2673c02b810f8eaaaddb793890a0);
+            
+    
+            var marker_bc1bc37c95b66e877e4caa77f7d70a58 = L.marker(
+                [37.3382, -121.8863],
+                {
+}
+            ).addTo(map_d33d7af93bd9c37b4bc0ebe93ca1f6a1);
+        
+    
+            var icon_03f3e2755a74478d46996ddcad7ca085 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c164944ed8e86aa3026dee4efce0a2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b61f90519b7cd1d8ddb7d3475eec8593 = $(`<div id="html_b61f90519b7cd1d8ddb7d3475eec8593" style="width: 100.0%; height: 100.0%;">Location: San Jose<br>Temp: 15.0 °C<br>Humidity: 60.0 %<br>Precipitation: 498056.6 mm<br>Wind Speed: 15.0 km/h</div>`)[0];
+                popup_8c164944ed8e86aa3026dee4efce0a2f.setContent(html_b61f90519b7cd1d8ddb7d3475eec8593);
+            
+        
+
+        marker_bc1bc37c95b66e877e4caa77f7d70a58.bindPopup(popup_8c164944ed8e86aa3026dee4efce0a2f)
+        ;
+
+        
+    
+    
+                marker_bc1bc37c95b66e877e4caa77f7d70a58.setIcon(icon_03f3e2755a74478d46996ddcad7ca085);
+            
+</script>
+</html>
